@@ -10,8 +10,7 @@
         <el-row :gutter="20">
           <el-col :span="16" :offset="2">
 
-
-            <h1 style="align-content: center">{{ this.detail.title}}</h1>
+            <h1 style="align-content: center">标题: {{ this.detail.title}}</h1>
             <br/>
             <h3> 作者: {{ this.detail.userId}}  </h3>
             <h4> 摘要: {{ this.detail.summary}}  </h4>
@@ -19,16 +18,10 @@
             <p>文章类别:  {{ this.detail.categoryId }}</p>
             <br/><br/>
 
-            <p>封面:  {{this.detail.image}}</p>
+            <p>封面图片路径:  {{this.detail.image}}</p>
 
-            <img :src="imgDataUrl" />
+            <img :src="imageCoverUrl" alt="article-cover" width="800" height="400"/>
 
-            <div class="card text-center" style="width: 16rem;">
-              <img class="card-img" :src="imgDataUrl" style="height: 16rem;">
-              <div class="card-footer text-muted">
-                <input type="file" id="image" name="image" @change="preview($event)">
-              </div>
-            </div>
 
 
             <p>正文: {{ this.detail.content }}</p>
@@ -52,7 +45,7 @@
     return {
       name: "article-detail",
       detail:{},
-      imgDataUrl: ''
+      imageCoverUrl:null,
     }
   }
 
@@ -73,17 +66,12 @@
     console.log("从cookie中获取用户参数 :" + this.userName)
   }
 
-  let  preview = function(event){
-    this.imgDataUrl = event.target.value;
-  };
 
   export default {
     data: data,
     methods: {
       //获取路由参数,
       getParams,
-      // 预览图片
-      preview,
     },
     mounted: function () {
       console.log("调转页面: " + this.$route.path)
@@ -91,8 +79,13 @@
 
       this.detail = this.$route.params.data
 
-      console.log("调转页面:获取参数-> " + this.detail.title + " - " + this.detail.date)
+      console.log("调转页面:获取参数-> " + this.detail.title + " - " + this.detail.image.toString())
 
+
+      console.log("封面图片URL -> "  + this.detail.image.toString().substring(20));
+
+      this.imageCoverUrl =  this.detail.image.toString().substring(20);
+      console.log("封面URL: " + this.imageCoverUrl)
 
     }
   }
