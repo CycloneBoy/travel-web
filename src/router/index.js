@@ -19,12 +19,17 @@ import Article from '@/pages/Article'
 import ArticleDetail from '@/pages/ArticleDetail'
 import Comment from '@/pages/Comment'
 
+// 前台页面
+import Home from '@/pages/front/Home'
+import Timeline from '@/pages/front/Timeline'
+import TimelineDetail from '@/pages/front/TimelineDetail'
+
 // hidden: true,
 
 let routes = [{
   path: '/',
-  component: Main,
   name: '设置',
+  component: Main,
   iconCls: 'fa fa-cogs',
   children: [
     {path: '/', component: Dashboard, name: '后台首页'},
@@ -99,9 +104,24 @@ routes.push({
   ]
 })
 
+routes.push({
+  path: '/timeline',
+  name: '时间线管理',
+  component: Main,
+  iconCls: 'fa  fa-heart',
+  children: [
+    {path: '/timeline/data', component: Timeline, name: '时间线列表'},
+    {path: '/timeline/detail', component: TimelineDetail, name: '时间线详情页'},
+    // {path: '/timeline/home', component: Home, name: '时间线'},
+
+  ]
+})
+
 routes.push({path: '/login',  component: Login,name: '管理员登录', iconCls: 'fa fa-user-circle-o'})
 routes.push({path: '/logout', component: Login, name: '用户注销'})
 routes.push({path: '/register', component: Register, name: '用户注册'})
+routes.push({path: '/timeline/home', component: Home, name: '时间线'})
+
 
 const router = new Router({
   mode: 'history',

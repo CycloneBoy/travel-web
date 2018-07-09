@@ -4,8 +4,11 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import $ from 'jquery'
-import 'bootstrap/dist/css/bootstrap.min.css'
-import 'bootstrap/dist/js/bootstrap.min'
+// import 'bootstrap/dist/css/bootstrap.min.css'
+// import 'bootstrap/dist/js/bootstrap.min'
+// 全局注册 时间线
+import hzqingVueTimeline from 'hzqing-vue-timeline'
+Vue.use(hzqingVueTimeline)
 
 Vue.config.productionTip = false
 

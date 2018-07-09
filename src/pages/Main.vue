@@ -45,11 +45,8 @@
     </el-aside>
 
 
-
-
-
     <!--内容-->
-    <el-container>
+    <el-container class="main-content">
       <!--页眉-->
       <el-header class="header">
         <el-row>
@@ -75,15 +72,18 @@
 
         </el-row>
       </el-header>
+
+
       <!--中间-->
       <el-main class="main">
         <transition name="fade" mode="out-in">
           <router-view></router-view>
         </transition>
       </el-main>
+
+
       <!--页脚-->
       <el-footer class="footer">
-
         <el-row type="flex" class="row-bg" justify="center">
           <el-col :span="10">
             <div class="grid-content bg-purple">
@@ -300,8 +300,9 @@ $header-height: 60px;
         text-align: center;
         line-height: $header-height;
         padding: 0;
-
+      width: 100%;
         .header-title {
+
             text-align: left;
             span {
                 padding: 0 20px;
@@ -312,6 +313,11 @@ $header-height: 60px;
     .system-name {
         font-size: large;
         font-weight: bold;
+    }
+
+    .main-content{
+      width: $width;
+      height: $height;
     }
 }
 </style>

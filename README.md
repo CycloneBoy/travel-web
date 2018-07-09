@@ -1,6 +1,7 @@
 # travel
 
 > A Vue.js project
+>环球网的前端项目，对应的后端RESTful接口采用Java（spring boot + mybatis + mysql)编写，后端项目名称为:[travel](https://github.com/CycloneBoy/travel)
 
 ## Build Setup
 

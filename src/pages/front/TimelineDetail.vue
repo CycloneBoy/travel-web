@@ -1,7 +1,7 @@
 <template>
   <section>
     <div>
-      <h1>这是文章详情页</h1>
+      <h1>这是时间线详情页</h1>
 
 
 
@@ -13,21 +13,15 @@
             <h1 style="align-content: center">标题: {{ this.detail.title}}</h1>
             <br/>
             <h3> 作者: {{ this.detail.userId}}  </h3>
-            <h4> 摘要: {{ this.detail.summary}}  </h4>
+            <p>正文: {{ this.detail.content }}</p>
 
-            <p>文章类别:  {{ this.detail.categoryId }}</p>
+
             <br/><br/>
 
             <p>封面图片路径:  {{this.detail.image}}</p>
 
             <img :src="imageCoverUrl" alt="article-cover" width="800" height="400"/>
 
-
-
-            <p>正文: {{ this.detail.content }}</p>
-            <p>点赞数:  {{this.detail.likeCount}}</p>
-            <p>评论数:  {{this.detail.commentCount}}</p>
-            <p>浏览数:  {{this.detail.viewCount}}</p>
             <p>发布日期: {{ this.detail.createTime }}</p>
             <p>最后修改日期: {{ this.detail.updateTime }}</p>
 
@@ -46,7 +40,7 @@
 
   let data = () => {
     return {
-      name: "article-detail",
+      name: "timeline-detail",
       detail:{},
       imageCoverUrl:null,
     }
@@ -77,7 +71,7 @@
       getParams,
     },
     mounted: function () {
-      console.log("调转页面: " + this.$route.path)
+      console.log("时间线调转页面: " + this.$route.path)
 
 
       this.detail = this.$route.params.data
@@ -85,10 +79,10 @@
       console.log("调转页面:获取参数-> " + this.detail.title + " - " + this.detail.image.toString())
 
 
-      console.log("封面图片URL -> "  + this.detail.image.toString().substring(20));
+      console.log("时间线图片URL -> "  + this.detail.image.toString().substring(20));
 
       this.imageCoverUrl =  this.detail.image.toString().substring(20);
-      console.log("封面URL: " + this.imageCoverUrl)
+      console.log("时间线URL: " + this.imageCoverUrl)
 
     }
   }

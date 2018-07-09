@@ -75,9 +75,7 @@
 
       this.detail = this.$route.params.data
 
-      $(function () {
-        alert(123);
-      });
+
 
     }
   }
